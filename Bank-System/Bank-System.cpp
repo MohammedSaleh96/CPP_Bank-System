@@ -3,6 +3,7 @@
 #include "Validation.h"
 #include "Person.h"
 #include "Employee.h"
+#include "Admin.h"
 using namespace std;
 
 int main()
@@ -81,4 +82,82 @@ int main()
 	cout << "=======Employee Info======= : \n";
 	em.displayInfo();
 	*/
+	/*
+	======================Admin-Module=====================
+	*/
+	/*
+	* ---Start---------CheckName-----------------
+	Admin ad;
+	int id;
+	string name{};
+	
+	cout << "Admin ID : ";
+	cin >> id;
+	ad.setId(id);
+	do
+	{
+		cout << "Admin Name : ";
+		cin >> name;
+		ad.setName(name);
+
+		try {
+			Validation::checkName(name);
+		}
+		catch (exception e) {
+			cout << e.what();
+		}
+
+	} while (!(Validation::alpha(name)));
+	----End-------CheckName---------------------
+	*/
+/*
+-------Start-----CheckPassword------
+		Admin ad;
+		string password{};
+do
+{
+	cout << "Admin Password : ";
+	cin >> password;
+	ad.setPassword(password);
+
+	try {
+		Validation::checkPassword(password);
+	}
+	catch (exception e) {
+		cout << e.what();
+	}
+
+} while (!(Validation::numPassword(password)));
+
+
+
+
+-------End-----CheckPassword-------
+
+*/
+/*
+* ----Start----CheckSalary---------
+		Admin ad;
+		double salary;
+do
+{
+	cout << "Admin Salary : ";
+	cin >> salary;
+	ad.setSalary(salary);
+
+	try {
+		Validation::checkMinSalary(salary);
+	}
+	catch (exception e) {
+		cout << e.what();
+	}
+
+} while (!(Validation::minSalary(salary)));
+
+
+* ----End----CheckSalary-----------
+
+*/
+	
+
 }

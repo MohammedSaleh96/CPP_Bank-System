@@ -11,22 +11,20 @@ class Employee : public Person
 protected:
 	//Attributes:
 	double salary;
+	static int id;
 public:
 	//Constructors:
-	Employee() {
-		this->salary = 0;
-	}
-	Employee(int id, string name,string password,double salary):Person(id,name,password) {
+	//Employee() {
+	//	this->salary = 0;
+	//	id++;
+	//}
+	Employee(string name,string password,double salary):Person(name,password) {
 		this->salary = salary;
+		id++;
 	}
 	//Seeters:
 	void setSalary(double salary) {
-
-		
 			this->salary = salary;
-			
-		
-		
 	}
 	//Getters:
 	double getSalary() {

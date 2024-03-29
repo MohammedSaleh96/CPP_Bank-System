@@ -1,6 +1,7 @@
 #pragma once
 #include <exception>
 #include <string>
+#include <iostream>
 using namespace std;
 // ===NOTE==== :
 	// 1-changed the class to public so i can accsess all funtion and check on them in while loop
@@ -12,18 +13,11 @@ class Validation
 public:
 	static bool alpha(const string& name) {
 		for (char c : name) {
-			if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))) {
+			if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) || !(name.size() > 5 || name.size() < 20)) {
 				return false;	
 			}
-			
 		}
-		if (name.size() > 5 && name.size() < 20) {
-			return true;
-		}
-		else
-		{
-			return false;
-		}
+		return true;
 		
 	}
 	/*static bool numName(const string& name) {
@@ -33,17 +27,26 @@ public:
 			return false;
 	}*/
 	static bool numPassword(const string& password) {
-		if (password.size() > 8 && password.size() <= 20)
+		if (!(password.size() > 8 || password.size() <= 20))
+			throw exception();
+		else {
 			return true;
-		else
-			return false;
+		}	
 	}
+	static bool minBalance(const double& salary) {
+		if (!(salary >= 1500))
+			throw exception("Balance should be 1500 min");
+		else
+			return salary;
+	}
+
 	static bool minSalary(const double& salary) {
 		if (salary>=5000)
 			return true;
 		else
 			return false;
 	}
+
 
 	// Check for UserName
 	/*static string checkName(const string& name) {
@@ -61,10 +64,16 @@ public:
 	}
 	//Check for Password
 	static string checkPassword(const string& password) {
-		if (numPassword(password))
-			return password;
-		else
-			throw exception("Unvalid password: the password should be min size 8 and max size 20\n");
+		try
+		{
+			if (numPassword(password))
+				return password;
+		}
+		catch (const std::exception& e)
+		{
+			cout << e.what();
+		}
+		return "Invalid";
 	}
 	//Check for Salary
 	static double checkMinSalary(const double& salary) {
@@ -72,6 +81,20 @@ public:
 			return salary;
 		else
 			throw exception("Salary should be at least 5000$\n");
+	}
+	//Check for Balance
+
+	static double checkMinBalance(const double& balance) {
+		try
+		{
+			if (minSalary(balance))
+				return balance;
+		}
+		catch (const std::exception& e)
+		{
+			cout << e.what();
+		}
+		
 	}
 };
 

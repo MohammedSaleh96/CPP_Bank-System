@@ -4,112 +4,113 @@
 #include "Person.h"
 #include "Employee.h"
 #include "Admin.h"
+#include "Client.h"
 using namespace std;
 
 int main()
 {
-	// Example to Check the Validation Method "checkName"
+#pragma region CommentsToValidateOurCode
 	/*string name = "Mohamme7";
-	string className;
-	try
-	{	
-		className = Validation::checkName(name);
+string className;
+try
+{
+	className = Validation::checkName(name);
+}
+catch (exception& e)
+{
+	cout <<e.what();
+}
+cout << className;
+*/
+
+//=====IMPORTANT========= Example to (Set and Input) Employee Data And check on data ===========
+//used Do While Loop to check on data (Validation) so if data not match the Validation requires
+// it show the msg and prevent the user go to next step. 
+
+/*Employee em;
+int id;
+string name{}, password{};
+double salary;
+cout << "Employee ID : ";
+cin >> id;
+em.setId(id);
+do
+{
+	cout << "Employee Name : ";
+	cin >> name;
+	em.setName(name);
+
+	try {
+		Validation::checkName(name);
 	}
-	catch (exception& e)
-	{
+	catch (exception e) {
+		cout << e.what();
+	}
+
+} while (!(Validation::alpha(name)));
+
+
+do
+{
+	cout << "Employee Password : ";
+	cin >> password;
+	em.setPassword(password);
+
+	try {
+		Validation::checkPassword(password);
+	}
+	catch (exception e) {
 		cout <<e.what();
 	}
-	cout << className;
-	*/
 
-	//=====IMPORTANT========= Example to (Set and Input) Employee Data And check on data ===========
-	//used Do While Loop to check on data (Validation) so if data not match the Validation requires
-	// it show the msg and prevent the user go to next step. 
+} while (!(Validation::numPassword(password)));
 
-	/*Employee em;
-	int id;
-	string name{}, password{};
-	double salary;
-	cout << "Employee ID : ";
-	cin >> id;
-	em.setId(id);
-	do
-	{
-		cout << "Employee Name : ";
-		cin >> name;
-		em.setName(name);
+do
+{
+	cout << "Employee Salary : ";
+	cin >> salary;
+	em.setSalary(salary);
 
-		try {
-			Validation::checkName(name);
-		}
-		catch (exception e) {
-			cout << e.what();
-		}
-		
-	} while (!(Validation::alpha(name)));
+	try {
+		Validation::checkMinSalary(salary);
+	}
+	catch (exception e) {
+		cout << e.what();
+	}
 
-	
-	do
-	{
-		cout << "Employee Password : ";
-		cin >> password;
-		em.setPassword(password);
+} while (!(Validation::minSalary(salary)));
 
-		try {
-			Validation::checkPassword(password);
-		}
-		catch (exception e) {
-			cout <<e.what();
-		}
-		
-	} while (!(Validation::numPassword(password)));
+cout << "=======Employee Info======= : \n";
+em.displayInfo();
+*/
+/*
+======================Admin-Module=====================
+*/
+/*
+* ---Start---------CheckName-----------------
+Admin ad;
+int id;
+string name{};
 
-	do
-	{
-		cout << "Employee Salary : ";
-		cin >> salary;
-		em.setSalary(salary);
+cout << "Admin ID : ";
+cin >> id;
+ad.setId(id);
+do
+{
+	cout << "Admin Name : ";
+	cin >> name;
+	ad.setName(name);
 
-		try {
-			Validation::checkMinSalary(salary);
-		}
-		catch (exception e) {
-			cout << e.what();
-		}
-		
-	} while (!(Validation::minSalary(salary)));
+	try {
+		Validation::checkName(name);
+	}
+	catch (exception e) {
+		cout << e.what();
+	}
 
-	cout << "=======Employee Info======= : \n";
-	em.displayInfo();
-	*/
-	/*
-	======================Admin-Module=====================
-	*/
-	/*
-	* ---Start---------CheckName-----------------
-	Admin ad;
-	int id;
-	string name{};
-	
-	cout << "Admin ID : ";
-	cin >> id;
-	ad.setId(id);
-	do
-	{
-		cout << "Admin Name : ";
-		cin >> name;
-		ad.setName(name);
-
-		try {
-			Validation::checkName(name);
-		}
-		catch (exception e) {
-			cout << e.what();
-		}
-
-	} while (!(Validation::alpha(name)));
-	----End-------CheckName---------------------
-	*/
+} while (!(Validation::alpha(name)));
+----End-------CheckName---------------------
+*/
 /*
 -------Start-----CheckPassword------
 		Admin ad;
@@ -158,6 +159,30 @@ do
 * ----End----CheckSalary-----------
 
 */
-	
+#pragma endregion
 
+	
+#pragma region ToDo
+// 1- Delete the Default Constructor ----> the Object should not be created without data
+// 2- Validate the data before assign it in the class.
+
+// Brain Storming
+// How the user can log into his account??
+#pragma endregion
+
+Client* c1 = new Client("mo", "253637", 6000);
+c1->Display();
+Client* c2 = new Client("mo", "253637", 6000);
+
+c1->transferTo(2000, *c2);
+
+c2->Display();
+
+Client* c3 = new Client("mo", "253637", 6000);
+c3->Display();
+
+c1->Display();
+
+	
+return 0;
 }

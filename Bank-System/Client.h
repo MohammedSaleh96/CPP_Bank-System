@@ -1,4 +1,5 @@
 #pragma once
+#include "Person.h"
 
 /*
 1. Client class which contains the following:
@@ -14,7 +15,59 @@
 	g. void checkBalance ().
 	h. Display function
 */
-class Client
+class Client : public Person
 {
+private:
+	double balance ;
+	static int id;
+	int myID;
+
+public:
+	Client(string name, string password, double balance) :Person(name,password) {
+		this->balance = Validation::checkMinBalance(balance);
+		id++;
+		myID = id;
+	}
+	// Setters
+	void setBalance(double balance) {
+		this->balance = Validation::checkMinBalance(balance);
+	}
+	// Getters
+	double getBalance() {
+		return this->balance;
+	}
+	// Methods
+	void deposit(double amount) {
+		if (amount > 0)
+			this->balance += amount;
+		else
+			cout << "Cannot be zero or minus";
+	}
+	void withdraw(double amount) {
+		if (amount > 0 && amount <= balance)
+			this->balance -= amount;
+		else
+			cout << "The amount must bigger than 0 and smaller than the current balance";
+	}
+	void transferTo(double amount, Client& recipient) {
+		if (amount > 0 && amount <= balance) {
+			this->balance -= amount;
+			recipient.balance += amount;
+		}
+			
+		else
+			cout << "The amount must bigger than 0 and smaller than the current balance";
+	}
+	void checkBalance() {
+		cout << "The current balance is :" << this->balance << endl;
+	}
+	void Display() {
+		
+		Person::display();
+		cout << "ID :" << this->myID << endl;
+		cout << "Balance :" << this->balance << endl;
+
+	}
+
 };
 

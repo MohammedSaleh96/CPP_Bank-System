@@ -10,14 +10,16 @@ class Admin : public Person
 protected:
 	//Attributes:
 	double salary;
+	static int id;
 public:
 	//Constructor
-	Admin() {
-		this->salary = 0;
-	}
-	Admin(int id, string name, string password, double salary) :Person(id, name, password) {
+	//Admin() {
+	//	this->salary = 0;
+	//	id++;
+	//}
+	Admin(string name, string password, double salary) :Person(name, password) {
 		this->salary = salary;
-
+		id++;
 	}
 	//Setters:
 	void setSalary(double salary) {

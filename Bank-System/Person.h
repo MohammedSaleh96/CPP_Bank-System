@@ -10,37 +10,29 @@ class Person
 protected:
 	//Attributes:
 	string name,password;
-	int id{};
 public:
 	//Constructors:
-	Person() {
-		this->id = 0;
-	}
-	Person(int id, string name, string password) {
-		this->id = id;
-		this->name = name;
-		this->password = password;
+	Person(string name, string password) {
+		this->name = Validation::checkName(name);
+		this->password = Validation::checkPassword(password);
 	}
 	//Seeters:
-	void setId(int id) {
-		this->id = id;
-	}
+
 	void setName(string name) {
-		this->name = name;
+		this->name = Validation::checkName(name);
 	}
 	void setPassword(string password) {
-		this->password = password;	
+		this->password = Validation::checkPassword(password);	
 	}
 	//Getters:
-	int getId() {
-		return this->id;
-	}
 	string getName() {
 		return this->name;
 	}
 	string getPassword() {
 		return this->password;
 	}
-	
+	void display() {
+		cout << "name :" << name << endl;
+	}
 };
 

@@ -9,8 +9,47 @@ using namespace std;
 
 int main()
 {
+
+/*
+	Phase1 Comments
+		1- Class Admit should inherit from Employee (take the salary from it as well)
+		2- Class Empolyee should take the data and validate it before assignment
+		3- Class Validation should:
+			3.1- Seperate the bool methods, make the exception for each (throw exception)
+			3.2- In the main validation methods, collect the bool methods, print the exception message (cout<< e.what();)
+*/
+	
+#pragma region ToDo
+// 1- Delete the Default Constructor ----> the Object should not be created without data
+// 2- Validate the data before assign it in the class.
+
+// Brain Storming
+// How the user can log into his account??
+#pragma endregion
+
+Client* c1 = new Client("mo", "253637", 6000);
+c1->Display();
+Client* c2 = new Client("mo", "253637", 6000);
+
+c1->transferTo(2000, *c2);
+
+c2->Display();
+
+Client* c3 = new Client("mo", "253637", 6000);
+c3->Display();
+
+c1->Display();
+
+	
+return 0;
+}
+
+
+
+
+
 #pragma region CommentsToValidateOurCode
-	/*string name = "Mohamme7";
+/*string name = "Mohamme7";
 string className;
 try
 {
@@ -160,29 +199,3 @@ do
 
 */
 #pragma endregion
-
-	
-#pragma region ToDo
-// 1- Delete the Default Constructor ----> the Object should not be created without data
-// 2- Validate the data before assign it in the class.
-
-// Brain Storming
-// How the user can log into his account??
-#pragma endregion
-
-Client* c1 = new Client("mo", "253637", 6000);
-c1->Display();
-Client* c2 = new Client("mo", "253637", 6000);
-
-c1->transferTo(2000, *c2);
-
-c2->Display();
-
-Client* c3 = new Client("mo", "253637", 6000);
-c3->Display();
-
-c1->Display();
-
-	
-return 0;
-}

@@ -23,13 +23,13 @@ private:
 	int myID;
 
 public:
-	Client(string name, string password, double balance) :Person(name,password) {
+	Client(const string& name, const string& password, const double& balance) :Person(name,password) {
 		this->balance = Validation::checkMinBalance(balance);
 		id++;
 		myID = id;
 	}
 	// Setters
-	void setBalance(double balance) {
+	void setBalance(const double& balance) {
 		this->balance = Validation::checkMinBalance(balance);
 	}
 	// Getters
@@ -37,19 +37,19 @@ public:
 		return this->balance;
 	}
 	// Methods
-	void deposit(double amount) {
+	void deposit(const double& amount) {
 		if (amount > 0)
 			this->balance += amount;
 		else
 			cout << "Cannot be zero or minus";
 	}
-	void withdraw(double amount) {
+	void withdraw(const double& amount) {
 		if (amount > 0 && amount <= balance)
 			this->balance -= amount;
 		else
 			cout << "The amount must bigger than 0 and smaller than the current balance";
 	}
-	void transferTo(double amount, Client& recipient) {
+	void transferTo(const double& amount, Client& recipient) {
 		if (amount > 0 && amount <= balance) {
 			this->balance -= amount;
 			recipient.balance += amount;

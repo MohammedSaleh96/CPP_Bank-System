@@ -12,16 +12,15 @@ protected:
 	string name,password;
 public:
 	//Constructors:
-	Person(string name, string password) {
+	Person(const string& name, const string& password) {
 		this->name = Validation::checkName(name);
 		this->password = Validation::checkPassword(password);
 	}
-	//Seeters:
-
-	void setName(string name) {
+	//Setters:
+	void setName(const string& name) {
 		this->name = Validation::checkName(name);
 	}
-	void setPassword(string password) {
+	void setPassword(const string& password) {
 		this->password = Validation::checkPassword(password);	
 	}
 	//Getters:

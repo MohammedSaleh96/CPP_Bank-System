@@ -5,10 +5,24 @@
 #include "Employee.h"
 #include "Admin.h"
 #include "Client.h"
+#include "Parser.h"
+#include "FilesHelper.h"
+
+#include<vector>
+#include<string>
 using namespace std;
 
 int main()
 {
+
+
+	string name = "30,Mohammed Saleh,001122,5000";
+	Client c = Parser::parseToClient(name);
+	FilesHelper::saveClient(c);
+
+	
+return 0;
+}
 
 /*
 	Phase1 Comments
@@ -18,7 +32,7 @@ int main()
 			3.1- Seperate the bool methods, make the exception for each (throw exception)
 			3.2- In the main validation methods, collect the bool methods, print the exception message (cout<< e.what();)
 */
-	
+
 #pragma region ToDo
 // 1- Delete the Default Constructor ----> the Object should not be created without data
 // 2- Validate the data before assign it in the class.
@@ -26,24 +40,9 @@ int main()
 // Brain Storming
 // How the user can log into his account??
 #pragma endregion
+#pragma region SalehValidation
 
-Client* c1 = new Client("mo", "253637", 6000);
-c1->Display();
-Client* c2 = new Client("mo", "253637", 6000);
-
-c1->transferTo(2000, *c2);
-
-c2->Display();
-
-Client* c3 = new Client("mo", "253637", 6000);
-c3->Display();
-
-c1->Display();
-
-	
-return 0;
-}
-
+#pragma endregion
 
 
 

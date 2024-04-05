@@ -23,8 +23,16 @@ private:
 	int myID;
 
 public:
-	Client(const string& name, const string& password, const double& balance) :Person(name,password) {
-		this->balance = Validation::checkMinBalance(balance);
+	Client(const string& name, const string& password, double balance) :Person(name,password) {
+		try
+		{
+			this->balance = Validation::checkMinBalance(balance);
+		}
+		catch (const std::exception& e)
+		{
+			cout << e.what();
+		}
+		
 		id++;
 		myID = id;
 	}
@@ -32,10 +40,14 @@ public:
 	void setBalance(const double& balance) {
 		this->balance = Validation::checkMinBalance(balance);
 	}
+	void setId(const int& id) {
+		this->myID = myID;
+	}
 	// Getters
 	double getBalance() {
 		return this->balance;
 	}
+	int getId() { return myID; }
 	// Methods
 	void deposit(const double& amount) {
 		if (amount > 0)

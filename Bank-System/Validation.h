@@ -11,21 +11,24 @@ using namespace std;
 class Validation
 {
 public:
-	static bool alpha(const string& name) {
+	// Check Name Condition
+	static bool checkNameCondition(const string& name) {
+		// Check if name consists of alphabetic characters only
 		for (char c : name) {
-			if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')) || !(name.size() > 5 || name.size() < 20)) {
-				return false;	
+			if (!((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))) {
+				throw exception("Name should be only Alphabitic");
+				//return false; 
 			}
 		}
-		return true;
-		
+		// Check if name length is between 5 and 20 characters
+		if (name.size() < 5 || name.size() > 20) {
+			throw exception("Name should be more than 5 char and less than 20");
+			//return false; 
+		}
+
+		return true; 
 	}
-	/*static bool numName(const string& name) {
-		if (name.size() > 5 && name.size() < 20)
-			return true;
-		else
-			return false;
-	}*/
+	// Check PassWord 
 	static bool numPassword(const string& password) {
 		if (!(password.size() > 8 || password.size() <= 20))
 			throw exception();
@@ -49,18 +52,16 @@ public:
 
 
 	// Check for UserName
-	/*static string checkName(const string& name) {
-		if (alpha(name) == true && numName(name) == true)
-			return name;
-		else
-			throw exception("Unvalid name: the name should be alphabetic chars and min size 5 and max size 20\n");
-	}*/
-
 	static string checkName(const string& name) {
-		if (alpha(name) == true)
-			return name;
-		else
-			throw exception("Unvalid name: the name should be alphabetic chars and min size 5 and max size 20\n");
+		try
+		{
+			if (checkNameCondition(name) == true)
+				return name;
+		}
+		catch (const std::exception& e)
+		{
+			cout << e.what();
+		}
 	}
 	//Check for Password
 	static string checkPassword(const string& password) {

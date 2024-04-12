@@ -23,6 +23,7 @@ public:
 	Admin(string name, string password, double salary) :Person(name, password) {
 		this->salary = salary;
 		id++;
+		myID = id;
 	}
 	//Setters:
 	void setSalary(double salary) {

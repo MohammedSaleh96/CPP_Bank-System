@@ -7,7 +7,7 @@
 #include "Client.h"
 #include "Parser.h"
 #include "FilesHelper.h"
-
+#include "FileManager.h"
 #include<vector>
 #include<string>
 using namespace std;

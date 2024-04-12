@@ -12,6 +12,8 @@ protected:
 	//Attributes:
 	double salary;
 	static int id;
+        int myID;
+
 public:
 	//Constructors:
 	//Employee() {
@@ -21,15 +23,20 @@ public:
 	Employee(string name,string password,double salary):Person(name,password) {
 		this->salary = salary;
 		id++;
+		
 	}
 	//Seeters:
 	void setSalary(double salary) {
 			this->salary = salary;
 	}
+        void setId(const int& id) {
+	this->myID = myID;
+          }
 	//Getters:
 	double getSalary() {
 		return this->salary;
 	}
+        int getId() { return myID; }
 	//Methods:
 	void displayInfo() {
 

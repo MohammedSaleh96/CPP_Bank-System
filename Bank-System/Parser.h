@@ -47,6 +47,16 @@ public:
 		parsedClient.setId(id);
 		return parsedClient;
 	}
+        static Admin parseToAdmin(string line){
+	vector<string> adminInfo = split(line);
+	int id = stoi(adminInfo.at(0));
+	string name = adminInfo.at(1);
+	string password = adminInfo.at(2);
+	double salary = stod(adminInfo.at(3));
+	Admin parsedAdmin(name, password, salary);
+	parsedAdmin.setId(id);
+	return parsedAdmin;
+}
 
 };
 

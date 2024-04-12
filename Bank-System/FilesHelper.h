@@ -32,5 +32,13 @@ public:
 		file_handler << c.getId()<< "," << c.getName()<< "," << c.getPassword() << "," << c.getBalance() << endl;
 		file_handler.close();
 	}
+	static void clearFile(string fileName, string lastIdFile) {
+		fstream file1, file2;
+		file1.open(fileName, ios::out);
+		file1.close();
+		file2.open(lastIdFile, ios::out);
+		file2 << 0;
+		file2.close();
+	}
 };
 

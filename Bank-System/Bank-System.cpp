@@ -19,6 +19,7 @@ int main()
 	string name = "30,Mohammed Saleh,001122,5000";
 	Client c = Parser::parseToClient(name);
 	FilesHelper::saveClient(c);
+	FilesHelper::clearFile("Clients.txt", "ClientLastId.txt");
 
 	
 return 0;

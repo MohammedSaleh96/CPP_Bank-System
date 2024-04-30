@@ -4,6 +4,8 @@
 #include <thread>
 #include "ClientManager.h"
 #include "FileManager.h"
+#include <vector>
+#include "Client.h"
 using namespace std;
 
 
@@ -12,12 +14,17 @@ class Screens
 {
 public:
     static vector<Client> allClients;
+
 	static void bankName() {
         
 	}
 	static void runApp() {
         int choice;
         bool exit = false;
+
+        // Read Data from the text files
+        FileManager filemanager;
+        allClients = filemanager.getallClients();
 
         while (!exit) {
             cout << "Choose an option:" << endl;
@@ -28,6 +35,9 @@ public:
             cout << "Enter your choice: ";
             cin >> choice;
 
+
+            int id=0;
+            string pass= "";
             switch (choice) {
             case 1:
                 system("cls"); // Clear screen
@@ -40,10 +50,28 @@ public:
             case 3:
                 system("cls"); // Clear screen
                 //allClients.empty();
-                FileManager filemanager;
-                allClients = filemanager.getallClients();
-                cout << allClients.size();
-                //ClientManager::printClientMenu();
+                
+
+                // Validate the Id and Password
+               
+                cout << "Please enter your Id :";
+                cin >> id;
+                cout << "Please enter your password :";
+                cin >> pass;
+                if (id <= allClients.size() )
+                {
+                    if (pass == allClients.at(id).getPassword()) {
+                        ClientManager::printClientMenu(allClients.at(id-1));
+                        //cout << allClients.size() << endl;
+                    }
+                    else {
+                        cout << "Unvalid Passwork !:";
+                    }
+                }
+                else {
+                    cout << "Unvalid ID !";
+                }
+                
                 break;
             case 4:
                 exit = true;

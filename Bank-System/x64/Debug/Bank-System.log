@@ -1,2 +1,4 @@
-﻿  Screens.cpp
+﻿  Bank-System.cpp
+D:\00_Programming Weiterbildung\01 Computer Science Diploma\Projects\CPP_Bank-System\Bank-System\Validation.h(99): warning C4715: 'Validation::checkMinBalance': not all control paths return a value
+D:\00_Programming Weiterbildung\01 Computer Science Diploma\Projects\CPP_Bank-System\Bank-System\Validation.h(65): warning C4715: 'Validation::checkName': not all control paths return a value
   Bank-System.vcxproj -> D:\00_Programming Weiterbildung\01 Computer Science Diploma\Projects\CPP_Bank-System\x64\Debug\Bank-System.exe

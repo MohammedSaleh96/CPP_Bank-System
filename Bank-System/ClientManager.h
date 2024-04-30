@@ -6,38 +6,90 @@
 #include "Parser.h"
 #include "FilesHelper.h"
 #include "FileManager.h"
-#include<vector>
-#include<string>
+//#include "Screens.h"
+#include <vector>
+#include <string>
 class ClientManager
 {
 public:
-	static void printClientMenu() {
+	static void printClientMenu( Client client) {
         int choice;
         bool exit = false;
 
+        // Variables
+        int amount =0;
+        int id =0;
         while (!exit) {
             cout << "Choose an option:" << endl;
-            cout << "1. Print numbers 1 to 5" << endl;
-            cout << "2. Print numbers 6 to 10" << endl;
-            cout << "3. Print numbers 11 to 15" << endl;
-            cout << "4. Exit" << endl;
+            cout << "1. Display my Info" << endl;
+            cout << "2. Check balance" << endl;
+            cout << "3. Update Password" << endl;
+            cout << "4. Withdraw" << endl;
+            cout << "5. Deposit" << endl;
+            cout << "6. Transfer amount" << endl;
+            cout << "7. Exit" << endl;
             cout << "Enter your choice: ";
             cin >> choice;
 
             switch (choice) {
-            case 1:
+            case 1: // Display Information
                 system("cls"); // Clear screen
-                //printRange(1, 5);
+                client.Display();
                 break;
-            case 2:
+            case 2: // Check balance
                 system("cls"); // Clear screen
-                //printRange(6, 10);
+                client.checkBalance();
                 break;
-            case 3:
+            case 3: // Update Password
                 system("cls"); // Clear screen
                 //printRange(11, 15);
                 break;
-            case 4:
+            case 4: //Withdraw
+                system("cls"); // Clear screen
+                cout << "Please enter the required amount :";
+                // validate the amount
+                if (cin >> amount)
+                {
+                    client.withdraw(amount);
+                    cout << "Withdrawal of $" << amount << " successful." << endl;
+                    cout << "Your new balance is :" << client.getBalance() <<endl; 
+                }
+                else{
+                    cout << "Error: Unvalid Input :";
+                }
+                
+                break;
+            case 5: // Deposit
+                system("cls"); // Clear screen
+                cout << "Please enter the required amount :";
+                // validate the amount
+                if (cin >> amount)
+                {
+                    client.deposit(amount);
+                    cout << "Deposit of $" << amount << " successful." << endl;
+                    cout << "Your new balance is :" << client.getBalance() << endl;
+                }
+                else {
+                    cout << "Error: Unvalid Input :";
+                }
+                break;
+            case 6:
+                system("cls"); // Clear screen
+                //cout << "Please enter the other account Id :" << endl;
+                //cin >> id;
+                //cout << "Please enter the amount, you would like to transfer :" << endl;
+                //cin >> amount;
+                ////and id < Screens::allClients.size()
+                //if (id >= 0 )
+                //{
+                //    client.transferTo(amount, Screens::allClients.at(id-1));
+                //    cout << "The transfer has been succeed, your current balance is " << client.getBalance() << endl;
+                //}
+                //else {
+                //    cout << "Unvalid Id " << endl;
+                //}
+                break;
+            case 7:
                 exit = true;
                 break;
             default:

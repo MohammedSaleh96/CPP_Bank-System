@@ -28,11 +28,28 @@ int main()
 	//Employee e = Parser::parseToEmployee(name);
 	//FilesHelper::saveEmployee(e);
 
-	//FilesHelper::getClients();
+
 	Screens::runApp();
 	
 return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 	Phase1 Comments

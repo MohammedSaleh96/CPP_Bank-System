@@ -7,7 +7,7 @@
 #include "Client.h"
 #include "Parser.h"
 #include "FilesHelper.h"
-#include "FileManager.h"
+//#include "FileManager.h"
 #include<vector>
 #include<string>
 using namespace std;
@@ -16,11 +16,18 @@ int main()
 {
 
 
-	string name = "30,Mohammed Saleh,001122,5000";
-	Client c = Parser::parseToClient(name);
-	FilesHelper::saveClient(c);
-	FilesHelper::clearFile("Clients.txt", "ClientLastId.txt");
+	//string name = "30,MohammedSaleh,001122,5000";
+	//Client c = Parser::parseToClient(name);
+	//FilesHelper::saveClient(c);
+	////FilesHelper::clearFile("Clients.txt", "ClientLastId.txt");
 
+	//Admin a = Parser::parseToAdmin(name);
+	//FilesHelper::saveAdmin(a);
+
+	//Employee e = Parser::parseToEmployee(name);
+	//FilesHelper::saveEmployee(e);
+
+	FilesHelper::getClients();
 	
 return 0;
 }

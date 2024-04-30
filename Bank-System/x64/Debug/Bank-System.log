@@ -1,13 +1,4 @@
-﻿  Admin.cpp
-  Bank-System.cpp
-  Client.cpp
-  DataSourceInterface.cpp
-  Employee.cpp
+﻿  Bank-System.cpp
   FilesHelper.cpp
-  Parser.cpp
-  Person.cpp
-  Validation.cpp
   Generating Code...
-D:\00_Programming Weiterbildung\01 Computer Science Diploma\Projects\CPP_Bank-System\Bank-System\Validation.h(98): warning C4715: 'Validation::checkMinBalance': not all control paths return a value
-D:\00_Programming Weiterbildung\01 Computer Science Diploma\Projects\CPP_Bank-System\Bank-System\Validation.h(64): warning C4715: 'Validation::checkName': not all control paths return a value
   Bank-System.vcxproj -> D:\00_Programming Weiterbildung\01 Computer Science Diploma\Projects\CPP_Bank-System\x64\Debug\Bank-System.exe

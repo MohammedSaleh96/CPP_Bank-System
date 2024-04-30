@@ -13,7 +13,7 @@ protected:
 	//Attributes:
 	double salary;
 	static int id;
-        int myID;
+    int myID;
 public:
 	//Constructor
 	//Admin() {
@@ -29,15 +29,16 @@ public:
 	void setSalary(double salary) {
 		this->salary = salary;
 	}
-        void setId(const int& id) {
-	this->myID = myID;
-         }
+    void setId(const int& id) {
+		this->myID = myID;
+    }
 
 	//Getters
+	
 	double getSalary() {
 		return this->salary;
 	}
-         int getId() { return myID; }
+    int getId() { return myID; }
 	void displayInfo() {
 		cout << "ID : " << this->id << endl;
 		cout << "Name : " << this->name << endl;

@@ -2,6 +2,8 @@
 #include <vector>
 #include <string>
 #include "Client.h"
+#include "Admin.h"
+#include "Employee.h"
 #include <fstream>
 
 class FilesHelper
@@ -31,6 +33,39 @@ public:
 		// write to file 
 		file_handler << c.getId()<< "," << c.getName()<< "," << c.getPassword() << "," << c.getBalance() << endl;
 		file_handler.close();
+		cout << "The Name has been successfully added"<< endl;
+	}
+	static void saveAdmin(Admin a) {
+		auto status = ios::in | ios::out | ios::app;   // ios::trunc ---> to overwrite 
+
+		string filePath = "Admin.txt";
+
+		fstream file_handler(filePath, status);
+		if (file_handler.fail()) {
+			cout << "Cannot open the file \n";
+			return;
+		}
+
+		// write to file 
+		file_handler << a.getId() << "," << a.getName() << "," << a.getPassword() << "," << a.getSalary() << endl;
+		file_handler.close();
+		cout << "The Name has been successfully added" << endl;
+	}
+	static void saveEmployee(Employee a) {
+		auto status = ios::in | ios::out | ios::app;   // ios::trunc ---> to overwrite 
+
+		string filePath = "Employee.txt";
+
+		fstream file_handler(filePath, status);
+		if (file_handler.fail()) {
+			cout << "Cannot open the file \n";
+			return;
+		}
+
+		// write to file 
+		file_handler << a.getId() << "," << a.getName() << "," << a.getPassword() << "," << a.getSalary() << endl;
+		file_handler.close();
+		cout << "The Name has been successfully added" << endl;
 	}
 	static void clearFile(string fileName, string lastIdFile) {
 		fstream file1, file2;
@@ -40,5 +75,76 @@ public:
 		file2 << 0;
 		file2.close();
 	}
+	static void getClients() {
+		string fileName = "Clients.txt";
+		ifstream inputFile(fileName);
+
+		if (!inputFile.is_open()) {
+			cerr << "Error: Unable to open file " << fileName << endl;
+			return;
+		}
+
+		vector<string> lines;
+
+		string line;
+		while (getline(inputFile, line)) {
+			lines.push_back(line);
+		}
+
+		inputFile.close();
+
+		
+		for (const auto& line : lines) {
+			cout << line << endl;
+		}
+	}
+	static void getEmpolyees() {
+		string fileName = "Employee.txt";
+		ifstream inputFile(fileName);
+
+		if (!inputFile.is_open()) {
+			cerr << "Error: Unable to open file " << fileName << endl;
+			return;
+		}
+
+		vector<string> lines;
+
+		string line;
+		while (getline(inputFile, line)) {
+			lines.push_back(line);
+		}
+
+		inputFile.close();
+
+
+		for (const auto& line : lines) {
+			cout << line << endl;
+		}
+	}
+	static void getAdmin() {
+		string fileName = "Admin.txt";
+		ifstream inputFile(fileName);
+
+		if (!inputFile.is_open()) {
+			cerr << "Error: Unable to open file " << fileName << endl;
+			return;
+		}
+
+		vector<string> lines;
+
+		string line;
+		while (getline(inputFile, line)) {
+			lines.push_back(line);
+		}
+
+		inputFile.close();
+
+
+		for (const auto& line : lines) {
+			cout << line << endl;
+		}
+	}
 };
+
+
 

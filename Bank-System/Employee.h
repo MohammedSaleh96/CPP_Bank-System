@@ -21,7 +21,7 @@ public:
 		id++;
 		myID = id;
 	}
-	//Seeters:
+	//Setters:
 	void setSalary(double salary) {
 			this->salary = salary;
 	}
@@ -37,14 +37,9 @@ public:
 
 	//Methods:
 	void displayInfo() {
-
-
-
 		cout << "Emoloyee ID : " << this->id << endl;
 		cout << "Emoloyee Name : " << this->name << endl;
 		cout << "Emoloyee Salary : " << this->salary << endl;
-
-
 		//=====if u want to check before display========
 		// 
 		//cout << "Emoloyee ID : " << this->id << endl;
@@ -64,6 +59,7 @@ public:
 		//	cout <<"Emoloyee Salary : "<< e.what();
 		//}
 	}
+
 
 };
 

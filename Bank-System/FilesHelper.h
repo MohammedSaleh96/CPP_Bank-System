@@ -5,6 +5,7 @@
 #include "Admin.h"
 #include "Employee.h"
 #include <fstream>
+#include "Parser.h"
 
 class FilesHelper
 {
@@ -96,6 +97,7 @@ public:
 		
 		for (const auto& line : lines) {
 			cout << line << endl;
+			//Parser::parseToClient(line);
 		}
 	}
 	static void getEmpolyees() {

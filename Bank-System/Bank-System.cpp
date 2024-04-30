@@ -7,9 +7,10 @@
 #include "Client.h"
 #include "Parser.h"
 #include "FilesHelper.h"
-//#include "FileManager.h"
+#include "FileManager.h"
 #include<vector>
 #include<string>
+#include "Screens.h"
 using namespace std;
 
 int main()
@@ -27,7 +28,8 @@ int main()
 	//Employee e = Parser::parseToEmployee(name);
 	//FilesHelper::saveEmployee(e);
 
-	FilesHelper::getClients();
+	//FilesHelper::getClients();
+	Screens::runApp();
 	
 return 0;
 }

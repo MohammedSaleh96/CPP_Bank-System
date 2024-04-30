@@ -21,13 +21,37 @@ public:
 	}
 
 	// Get Classes from .txt
-	static void getClients() {
-		FilesHelper::getClients();
+	vector<Client> getallClients() {
+		string fileName = "Clients.txt";
+		ifstream inputFile(fileName);
+
+		/*if (!inputFile.is_open()) {
+			cerr << "Error: Unable to open file " << fileName << endl;
+			return;
+		}*/
+
+		vector<string> lines;
+
+		string line;
+		while (getline(inputFile, line)) {
+			lines.push_back(line);
+		}
+
+		inputFile.close();
+
+		vector<Client> allClients;
+
+		for (const auto& line : lines) {
+			//cout << line << endl;
+			Client c = Parser::parseToClient(line);
+			allClients.push_back(c);
+		}
+		return allClients;
 	}
-	static void getEmployees() {
+	static void getallEmployees() {
 		FilesHelper::getEmpolyees();
 	}
-	static void getAdmin() {
+	static void getallAdmin() {
 		FilesHelper::getAdmin();
 	}
 
@@ -42,8 +66,4 @@ public:
 		FilesHelper::clearFile("Admins.txt", "AdminLastId.txt");
 	}
 
-};
-
-class FileManager
-{
 };

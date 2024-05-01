@@ -15,6 +15,8 @@
 	g. void checkBalance ().
 	h. Display function
 */
+static vector<Client> allClients;
+static vector<Client>::iterator clientIt;
 class Client : public Person
 {
 private:

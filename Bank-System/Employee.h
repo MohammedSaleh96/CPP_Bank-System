@@ -34,29 +34,6 @@ public:
 		return this->salary;
 	}
     int getId() { return myID; }
-void addClient(Client& client) {
-	allClients.push_back(client);
-}
-Client* searchClient(int id) {
-	for (clientIt = allClients.begin(); clientIt != allClients.end(); clientIt++)
-	{
-		if (clientIt->getID() == id) {
-			return clientIt._Ptr;
-		}
-	}
-	return NULL;
-}
-void listClient() {
-	for (clientIt = allClients.begin(); clientIt != allClients.end(); clientIt++)
-	{
-		clientIt->displayInfo();
-	}
-}
-void editClient(int id, string name, string password, double balance) {
-	searchClient(id)->setName(name);
-	searchClient(id)->setPassword(password);
-	searchClient(id)->setBalance(balance);
-}
 
 	//Methods:
 	void displayInfo() {
